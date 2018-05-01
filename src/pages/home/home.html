@@ -1,17 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+    <ion-toolbar color="primary">
+  
+      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+  
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  
+  
+  
+  
+  <ion-content>
+  
+  
+  
+    <ion-list [hidden]="autocompleteItems.length == 0">
+  
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+  
+        {{ item.description }}
+  
+      </ion-item>
+  
+    </ion-list>
+  
+  
+  
+    <div id='map'></div>
+  
+  </ion-content>
+  
+  
+  
+  <ion-footer>
+  
+    <button class="geolocation-btn" ion-button full (click)="tryGeolocation()"> Try Geolocation </button>
+  
+  </ion-footer>

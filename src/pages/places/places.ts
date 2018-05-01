@@ -5,10 +5,14 @@ import { LoadingController } from 'ionic-angular';
 
 declare var google;
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+
+  selector: 'places-map',
+
+  templateUrl: 'places.html'
+
 })
-export class AboutPage {
+
+export class PlacesPage {
 
   autocomplete: any;
 
